@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareBridge - Healthcare & Wellbeing</title>
+  <link rel="stylesheet" href="healthcare.css" />
+</head>
+<body>
+
+  <header>
+    <h1>CareBridge Portal</h1>
+    <p>Removing barriers to timely healthcare and mental wellbeing.</p>
+  </header>
+
+  <div class="container">
+    <!-- SOS / Emergency Card -->
+    <div class="card emergency">
+      <h2>🚨 Instant Medical SOS</h2>
+      <p class="card-desc">
+        Location-based alert to nearest campus clinic/ambulance.
+      </p>
+      <button class="sos-btn" onclick="sendSOS()">Trigger Emergency Alert</button>
+      <div id="sosStatus" class="status-msg"></div>
+    </div>
+
+    <!-- Tele-Consultation Booking -->
+    <div class="card">
+      <h2>🩺 Book Tele-Consultation</h2>
+      <form onsubmit="handleBooking(event)">
+        <div class="form-group">
+          <label for="patientName">Full Name</label>
+          <input type="text" id="patientName" placeholder="e.g. John Doe" required />
+        </div>
+        <div class="form-group">
+          <label for="department">Department / Need</label>
+          <select id="department">
+            <option>General Physician</option>
+            <option>Mental Health & Counseling</option>
+            <option>Dermatology</option>
+            <option>Cardiology</option>
+            <option>Gynecology</option>
+            <optgroup label="Other Specialties">
+              <option>Orthopedics</option>
+              <option>ENT</option>
+              <option>Pediatrics</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="slotTime">Preferred Time Slot</label>
+          <input type="time" id="slotTime" required />
+        </div>
+        <button type="submit" class="submit-btn">Confirm Appointment</button>
+      </form>
+      <div id="bookingStatus" class="status-msg"></div>
+    </div>
+
+    <!-- Anonymous Mental Health AI Support -->
+    <div class="card chat-card">
+      <h2>🧠 Anonymous Wellbeing Check-in</h2>
+      <div class="chat-box" id="chatBox">
+        <div class="msg bot">Hello! I'm here to listen. How are you feeling today? (Everything here is private)</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="userInput" placeholder="Share your thoughts..." onkeypress="handleKeyPress(event)" />
+        <button class="submit-btn send-btn" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="healthcare.js"></script>
+</body>
+</html>
